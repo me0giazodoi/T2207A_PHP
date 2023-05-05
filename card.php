@@ -5,41 +5,208 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+          integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <title>Card</title>
 </head>
+<style>
+    body {
+        background-color: #f1f2f7;
+    }
+
+    /*panel*/
+    .panel {
+        border: none;
+        box-shadow: none;
+    }
+
+
+    /*product list*/
+
+    .prod-cat li a {
+        border-bottom: 1px dashed #d9d9d9;
+    }
+
+    .prod-cat li a {
+        color: #3b3b3b;
+    }
+
+    .prod-cat li ul {
+        margin-left: 30px;
+    }
+
+    .prod-cat li ul li a {
+        border-bottom: none;
+    }
+
+    .prod-cat li ul li a:hover, .prod-cat li ul li a:focus, .prod-cat li ul li.active a, .prod-cat li a:hover, .prod-cat li a:focus, .prod-cat li a.active {
+        background: none;
+        color: #ff7261;
+    }
+
+    .product-list img {
+        width: 100%;
+        border-radius: 4px 4px 0 0;
+        -webkit-border-radius: 4px 4px 0 0;
+        height: 260px;
+        object-fit: contain;
+    }
+
+    .product-list .pro-img-box {
+        position: relative;
+    }
+
+    .adtocart {
+        background: #fc5959;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        color: #fff;
+        display: inline-block;
+        text-align: center;
+        border: 3px solid #fff;
+        left: 45%;
+        bottom: -25px;
+        position: absolute;
+    }
+
+    .adtocart i {
+        color: #fff;
+        font-size: 25px;
+        line-height: 42px;
+    }
+
+    .pro-title {
+        color: #5A5A5A;
+        display: inline-block;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+
+    .product-list .price {
+        color: #fc5959;
+        font-size: 15px;
+    }
+
+
+    .pro-img-details img {
+        width: 100%;
+    }
+
+    .product_meta span {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .product_meta a, .pro-price {
+        color: #fc5959;
+    }
+
+    .pro-img-list a {
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+</style>
 <body>
 <?php
 $product = [
     [
-        "name"=>"Rem",
-        "price"=>100,
-        "thumbnail"=>"image/rem.jpg",
-        "qty"=>1
+        "name" => "Dâu Tây",
+        "price" => 110,
+        "thumbnail" => "image/rem.jpg",
+        "qty" => 1
     ],
     [
-        "name"=>"Rem",
-        "price"=>100,
-        "thumbnail"=>"image/rem.jpg",
-        "qty"=>1
-    ],  
+        "name" => "KIWI",
+        "price" => 45,
+        "thumbnail" => "image/rem.jpg",
+        "qty" => 1
+    ],
+    [
+        "name" => "Tỏi",
+        "price" => 15,
+        "thumbnail" => "image/rem.jpg",
+        "qty" => 1
+    ],
+    [
+        "name" => "Xà lách mỡ",
+        "price" => 2,
+        "thumbnail" => "image/rem.jpg",
+        "qty" => 1
+    ],
+    [
+        "name" => "Khổ qua",
+        "price" => 2,
+        "thumbnail" => "image/rem.jpg",
+        "qty" => 1
+    ],
+    [
+        "name" => "Củ cải đỏ",
+        "price" => 12,
+        "thumbnail" => "image/rem.jpg",
+        "qty" => 1
+    ],
+    [
+        "name" => "Cherries",
+        "price" => 23,
+        "thumbnail" => "image/rem.jpg",
+        "qty" => 1
+    ],
+    [
+        "name" => "Cam mỹ",
+        "price" => 34,
+        "thumbnail" => "image/rem.jpg",
+        "qty" => 1
+    ],
+    [
+        "name" => "Bắp cải tím",
+        "price" => 4,
+        "thumbnail" => "image/rem.jpg",
+        "qty" => 0
+    ],
+    [
+        "name" => "Cà chua",
+        "price" => 11,
+        "thumbnail" => "image/rem.jpg",
+        "qty" => 1
+    ],
+    [
+        "name" => "Cải bẹ xanh",
+        "price" => 5,
+        "thumbnail" => "image/rem.jpg",
+        "qty" => 1
+    ],
 ];
 ?>
     <section>
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <?php foreach ($product as $pr): ?>
-                            <img src="<?php echo $pr["thumbnail"]; ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <div><?php echo "Tên sản phẩm: ".$pr["name"]; ?></div>
-                            <div><?php echo "Giá: ".$pr["price"]; ?></div>
-                            <div><?php echo "Số lượng: ".$pr["qty"]; ?></div>
-                        </div>
-                        <?php endforeach; ?>
+            <div class="row product-list">
+                <?php foreach (@$product as $pr): ?>
+                    <div class="col-md-3">
+                        <section class="panel">
+                            <div class="pro-img-box">
+                                <img src="<?php echo $pr["thumbnail"] ?>" alt=""/>
+                                <?php if ($pr["qty"] > 0): ?>
+                                    <a href="#" class="adtocart">
+                                        <i class="bi bi-cart2"></i>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                            <div class="panel-body text-center">
+                                <h4>
+                                    <a href="#" class="pro-title">
+                                        <?php echo $pr["name"] ?>
+                                    </a>
+                                </h4>
+                                <p class="price">$<?php echo $pr["price"] ?></p>
+                            </div>
+                        </section>
                     </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
