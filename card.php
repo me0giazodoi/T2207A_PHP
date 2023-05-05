@@ -22,7 +22,7 @@ $product = [
         "price"=>100,
         "thumbnail"=>"image/rem.jpg",
         "qty"=>1
-    ],
+    ],  
 ];
 ?>
     <section>
