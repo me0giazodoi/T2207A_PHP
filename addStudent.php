@@ -29,7 +29,7 @@ if($conn -> connect_error){
 }
 
 // truy van
-$sql = "INSERT INTO sinhvien (name, email, birthday, gender, class_id) VALUES ('$name', '$email', '$birthday', '$gender', '$class_id')";
+$sql = "INSERT INTO sinhvien (name, email, birthday, gender, class_id) VALUES ('$name', '$email', '$birthday', '$gender', $class_id)";
 if ($conn -> query($sql)){
     header("location: database.php");
 } else{

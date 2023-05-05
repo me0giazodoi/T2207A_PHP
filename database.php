@@ -49,6 +49,7 @@ if ($result->num_rows > 0){
                 <th scope="col">birthday</th>
                 <th scope="col">gender</th>
                 <th scope="col">class id</th>
+                <th scope="col">edit</th>
             </tr>
             </thead>
             <tbody>
@@ -61,6 +62,9 @@ if ($result->num_rows > 0){
                     echo "<td>".$st["gender"]."</td>";
                     echo "<td>".$st["class_id"]."</td>";
                     ?>
+                    <td>
+                        <a href="editStudent.php?id=<?php echo $st["id"]; ?>">Sửa</a>
+                    </td>
                 </tr>
             <?php   endforeach; ?>
             </tbody>
